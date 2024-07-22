@@ -74,5 +74,19 @@ const students = [
 ];
 
 const graduatedStudents = (listOfStudents) => {
-//Implement function
+  const report = [];
+  for (const student of listOfStudents) {
+    let message = "";
+    const { name, email, graduated } = student;
+    if (graduated) {
+      message = `${name} has graduated and their diploma will be sent to ${email}.`;
+      report.push(message);
+      continue;
+    }
+    message = `${name} has not graduated yet, no diploma will be sent.`;
+    report.push(message);
+  }
+  return report;
 };
+
+console.log(graduatedStudents(students));
